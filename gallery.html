@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery & Stories</title>
+
+<style>
+  body{
+    margin:0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:#002a45;
+    color:#ffffff;
+    padding:22px;
+    background: radial-gradient(circle at top, #00639c, #002a45 65%);
+  }
+
+  h1{
+    text-align:center;
+    margin-bottom:35px;
+    font-size:2.3rem;
+    font-weight:700;
+    text-shadow:0 0 10px #00d4ff;
+    letter-spacing:1px;
+  }
+
+  h2{
+    margin-bottom:18px;
+    font-size:1.5rem;
+    padding-left:14px;
+    border-left:5px solid #00e1ff;
+    text-shadow:0 0 5px #009dbe;
+  }
+
+  .section{
+    max-width:980px;
+    margin:0 auto 55px;
+  }
+
+  /* Unique Card Styles */
+  .gallery{
+    display:grid;
+    gap:24px;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  }
+
+  .card{
+    background:rgba(255,255,255,0.12);
+    border-radius:18px;
+    padding:16px;
+    border:1.5px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(12px);
+    position:relative;
+    overflow:hidden;
+    transition:0.35s ease;
+  }
+
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:18px;
+    background:linear-gradient(
+      145deg,
+      rgba(0,255,255,0.18),
+      rgba(0,122,255,0.18)
+    );
+    opacity:0;
+    transition:0.35s;
+  }
+
+  .card:hover::before{
+    opacity:0.35;
+  }
+
+  .card:hover{
+    transform:translateY(-6px) scale(1.02);
+    border-color:rgba(255,255,255,0.35);
+  }
+
+  .card img{
+    width:100%;
+    border-radius:14px;
+    margin-bottom:10px;
+    transition:0.35s;
+  }
+
+  .card img:hover{
+    transform:scale(1.05);
+  }
+
+  .card p{
+    margin-top:6px;
+    font-size:0.93rem;
+    line-height:1.4rem;
+  }
+
+  /* Stories */
+  .story{
+    background:rgba(255,255,255,0.12);
+    padding:22px;
+    border-radius:20px;
+    margin-bottom:32px;
+    border:1.5px solid rgba(255,255,255,0.18);
+    backdrop-filter:blur(12px);
+    position:relative;
+  }
+
+  .story h3{
+    margin-top:0;
+    font-size:1.25rem;
+    font-weight:600;
+    color:#c7faff;
+    text-shadow:0 0 6px #00caff;
+  }
+
+  .story p{
+    line-height:1.55rem;
+    font-size:0.97rem;
+  }
+
+  .before-after{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:14px;
+  }
+
+  .before-after div{
+    flex:1 1 260px;
+  }
+
+  .before-after img{
+    width:100%;
+    border-radius:14px;
+    transition:0.35s;
+  }
+
+  .before-after img:hover{
+    transform:scale(1.04);
+  }
+
+  strong{
+    display:block;
+    margin-bottom:8px;
+    color:#e0feff;
+    font-size:1rem;
+  }
+</style>
+</head>
+
+<body>
+   <div class="bubbles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+<h1>🌐 Gallery & Inspiring Ocean Stories</h1>
+
+<!-- Cleanup Events Gallery -->
+<section class="section">
+  <h2>🌟 Cleanup Event Highlights</h2>
+
+  <div class="gallery">
+
+    <div class="card">
+      <img src="beach clnup.jpg" alt="Beach Cleanup">
+      <p>Dedicated volunteers cleared over 500 kg of plastic waste, restoring natural shoreline beauty.</p>
+    </div>
+
+    <div class="card">
+      <img src="underwater.jfif" alt="Underwater Cleanup">
+      <p>Divers rescued corals trapped under ghost nets, giving underwater life a fresh chance to thrive.</p>
+    </div>
+
+    <div class="card">
+      <img src="mangroove.jpg" alt="Mangrove Cleanup">
+      <p>Eco teams cleaned mangrove roots, removing toxins that harm crabs, shrimp, and juvenile fish.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2>🌿 Marine Life — Before & After Transformations</h2>
+
+  <div class="story">
+    <h3>🌊 Coral Reef Revival</h3>
+    <p>
+      After removing suffocating nets and plastic, the coral reef began to show bright new colors.
+      Fish populations increased by nearly 40%, breathing life back into the ecosystem.
+    </p>
+
+    <div class="before-after">
+      <div>
+        <strong>Before</strong>
+        <img src="coral before.jpg" alt="Coral Before">
+      </div>
+      <div>
+        <strong>After</strong>
+        <img src="coral after.avif" alt="Coral After">
+      </div>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3>🐢 Turtle Nesting Grounds Reborn</h3>
+    <p>
+      Once buried under harmful trash, this beach is now a protected nesting site. Over 120 turtle nests
+      were recorded last season thanks to the restoration work.
+    </p>
+
+    <div class="before-after">
+      <div>
+        <strong>Before</strong>
+        <img src="marine life before.jpg" alt="Beach Before">
+      </div>
+      <div>
+        <strong>After</strong>
+        <img src="after marine life.jpg" alt="Beach After">
+      </div>
+    </div>
+  </div>
+
+  <div class="story">
+    <h3>🐠 Seagrass Meadow Restoration</h3>
+    <p>
+      After extensive clearing of ropes and plastic bags, seagrass began regrowing rapidly. Seahorses,
+      crabs, and small fish returned within weeks of the cleanup.
+    </p>
+
+    <div class="before-after">
+      <div>
+        <strong>Before</strong>
+        <img src="seagrass before.webp" alt="Seagrass Before">
+      </div>
+      <div>
+        <strong>After</strong>
+        <img src="coral after.avif" alt="Seagrass After">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
+
