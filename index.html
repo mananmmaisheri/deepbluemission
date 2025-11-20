@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Below Water - Ocean Cleanup</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+    <header>
+        <h1>DEEPBLUE MISSION</h1>
+    <!-- Responsive Navbar -->
+<nav style="
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 25px;
+    background:#041C32;
+    position:sticky;
+    top:0;
+    z-index:999;
+">
+    <!-- Logo -->
+    <h2 style="color:white;margin:0;font-family:Arial;">Protect. Preserve. Restore.</h2>
+
+    <!-- Menu Button for Mobile -->
+    <div id="menu-btn" style="
+        display:none;
+        font-size:28px;
+        color:white;
+        cursor:pointer;
+        user-select:none;
+    ">
+        ☰
+    </div>
+
+    <!-- Links -->
+    <div id="nav-links" style="
+        display:flex;
+        gap:25px;
+    ">
+        <a href="index.html" style="color:white;text-decoration:none;font-size:18px;font-family:Arial;">Home</a>
+        <a href="gallery.html" style="color:white;text-decoration:none;font-size:18px;font-family:Arial;">Gallery</a>
+        <a href="marine.html" style="color:white;text-decoration:none;font-size:18px;font-family:Arial;">Marine Life</a>
+        <a href="sustainable.html" style="color:white;text-decoration:none;font-size:18px;font-family:Arial;">Sustainable Fishing</a>
+        <a href="volunteer.html" style="color:white;text-decoration:none;font-size:18px;font-family:Arial;">Register</a><a></a>
+    </div>
+</nav>
+
+<!-- Mobile responsive script -->
+<script>
+    const btn = document.getElementById("menu-btn");
+    const nav = document.getElementById("nav-links");
+
+    // Hide menu on small screen
+    function checkWidth() {
+        if (window.innerWidth <= 700) {
+            nav.style.display = "none";
+            btn.style.display = "block";
+        } else {
+            nav.style.display = "flex";
+            btn.style.display = "none";
+        }
+    }
+    checkWidth();
+    window.onresize = checkWidth;
+
+    btn.onclick = () => {
+        nav.style.display = nav.style.display === "none" ? "flex" : "none";
+        nav.style.flexDirection = "column";
+        nav.style.background = "#041C32";
+        nav.style.padding = "10px";
+        nav.style.position = "absolute";
+        nav.style.top = "60px";
+        nav.style.right = "20px";
+        nav.style.boxShadow = "0 5px 15px rgba(0,0,0,0.3)";
+        nav.style.borderRadius = "10px";
+    };
+</script>
+
+</header>
+    </header>
+    <section class="hero">
+        <div class="content">
+            <h2 class="glow">Ocean Cleanup Awareness</h2>
+            <p>Every year, millions of tons of plastic enter the ocean.  
+            Together, we can clean our oceans, protect marine animals,  
+            and create a pollution-free future.</p>
+        </div>
+
+        <div class="image-box">
+            <img src="C:\Users\lab103\Downloads\iStock-1426542331-1.jpg" alt="Ocean Cleanup Awareness">
+        </div>
+    </section>
+    <section class="marine-section">
+        <h2 class="glow">Marine Life Education Portal</h2>
+        <p>Discover ocean ecosystems, learn about endangered marine species, and explore the beauty of life below water.</p>
+
+        <div class="triple-gallery">
+            <div class="gallery-card">
+                <img src="C:\Users\lab103\Downloads\istockphoto-1189904571-612x612.jpg" alt="">
+            </div>
+
+            <div class="gallery-card">
+                <img src="C:\Users\lab103\Downloads\underwater-side-view-of-whale-shark-feeding-mouth-royalty-free-image-1672871801.avif" alt="">
+            </div>
+
+            <div class="gallery-card">
+                <img src="C:\Users\lab103\Downloads\evfjj0onljy2bpuq64xmfyuowkdj_shutterstock_2094614209.avif" alt="">
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
