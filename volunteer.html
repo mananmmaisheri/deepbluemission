@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html lang="en">
+<head><link rel="stylesheet" href="style2.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Volunteer Hub — Beach Cleanups</title>
+  <style>
+    :root{--accent:#0b8f6b;--muted:#666}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.4;margin:0;color:#111}
+    .container{max-width:900px;margin:24px auto;padding:16px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    header h1{color: white; margin:0;font-size:1.25rem}
+    .hero{background:linear-gradient(90deg, rgba(11,143,107,0.08), transparent);padding:14px;border-radius:8px;margin-top:12px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
+    @media(min-width:760px){.grid{grid-template-columns:1fr 360px}}
+    .card{background:#fff;border:1px solid #eee;padding:14px;border-radius:8px;box-shadow:0 1px 0 rgba(0,0,0,0.03)}
+    .events ul{list-style:none;padding:0;margin:0}
+    .events li{padding:10px 8px;border-bottom:1px dashed #eee}
+    .events li:last-child{border-bottom:none}
+    label{display:block;font-size:0.9rem;margin-bottom:6px;color:var(--muted)}
+    input,select,textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:0.95rem}
+    button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+    footer{margin-top:18px;padding-top:12px;border-top:1px solid #f0f0f0;font-size:0.9rem;color:var(--muted)}
+    .small{font-size:0.9rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+    <div class="bubbles"><span></span><span></span><span></span><span></span></div>
+  <div class="container">
+    <header>
+      <h1>Volunteer Hub</h1>
+      <nav class="small">Join local beach cleanups 🌴</nav>
+    </header><section class="hero card">
+  <strong>Upcoming beach cleanups — help keep our coastlines clean!</strong>
+  <p class="small">Choose an event below and register. No experience needed — just bring water and a smile.</p>
+</section>
+
+<main class="grid">
+  <section class="card events">
+    <h2 style="margin-top:0">Upcoming events</h2>
+    <ul id="eventsList">
+      <li><strong>Sunrise Cleanup</strong> — Nov 22, 2025 · 7:00 AM · Marina Bay</li>
+      <li><strong>Family Beach Day</strong> — Dec 6, 2025 · 9:00 AM · Seaview</li>
+      <li><strong>Night Patrol</strong> — Dec 20, 2025 · 5:30 PM · Coral Point</li>
+    </ul>
+    <p class="small" style="margin-top:12px">Want to add an event? Contact the organizer at <a href="mailto:volunteer@hub.org">volunteer@hub.org</a>.</p>
+  </section>
+
+  <aside class="card">
+    <h2 style="margin-top:0">Volunteer registration</h2>
+    <form id="volForm">
+      <label for="name">Full name</label>
+      <input id="name" name="name" required placeholder="Your name">
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+      <label for="phone">Phone (optional)</label>
+      <input id="phone" name="phone" placeholder="+91 99XXXXXXXX">
+      <label for="event">Select event</label>
+      <select id="event" name="event" required>
+        <option value="">-- choose an event --</option>
+        <option>Sunrise Cleanup — Nov 22, 2025</option>
+        <option>Family Beach Day — Dec 6, 2025</option>
+        <option>Night Patrol — Dec 20, 2025</option>
+      </select>
+
+      <label for="message">Any notes</label>
+      <textarea id="message" name="message" rows="3" placeholder="Allergies, group size, questions..."></textarea>
+
+      <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+        <button type="submit">Register</button>
+        <button type="button" id="clearBtn" style="background:#ddd;color:#111">Clear</button>
+      </div>
+    </form>
+
+    <p id="response" class="small" style="margin-top:10px"></p>
+  </aside>
+</main>
+
+<footer>
+  <p class="small">Volunteer Hub • Community-led beach cleanups • <a href="#">Privacy</a></p>
+</footer>
+
+  </div>  <script>
+    // Simple front-end: show a confirmation and (in real life) send to a server
+    const form = document.getElementById('volForm');
+    const resp = document.getElementById('response');
+    const clear = document.getElementById('clearBtn');
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      const name = data.get('name');
+      const event = data.get('event');
+      if(!name || !event){
+        resp.textContent = 'Please fill in the required fields.';
+        return;
+      }
+      resp.textContent = `Thanks ${name}! You've registered for: ${event}. We'll contact you by email.`;
+      form.reset();
+    });
+
+    clear.addEventListener('click', ()=>{ form.reset(); resp.textContent=''; });
+  </script></body>
+</html>
