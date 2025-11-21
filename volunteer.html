@@ -1,107 +1,244 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style2.css">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Volunteer Hub — Beach Cleanups</title>
-  <style>
-    :root{--accent:#0b8f6b;--muted:#666}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.4;margin:0;color:#111}
-    .container{max-width:900px;margin:24px auto;padding:16px}
-    header{display:flex;align-items:center;justify-content:space-between}
-    header h1{color: white; margin:0;font-size:1.25rem}
-    .hero{background:linear-gradient(90deg, rgba(11,143,107,0.08), transparent);padding:14px;border-radius:8px;margin-top:12px}
-    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
-    @media(min-width:760px){.grid{grid-template-columns:1fr 360px}}
-    .card{background:#fff;border:1px solid #eee;padding:14px;border-radius:8px;box-shadow:0 1px 0 rgba(0,0,0,0.03)}
-    .events ul{list-style:none;padding:0;margin:0}
-    .events li{padding:10px 8px;border-bottom:1px dashed #eee}
-    .events li:last-child{border-bottom:none}
-    label{display:block;font-size:0.9rem;margin-bottom:6px;color:var(--muted)}
-    input,select,textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:0.95rem}
-    button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
-    footer{margin-top:18px;padding-top:12px;border-top:1px solid #f0f0f0;font-size:0.9rem;color:var(--muted)}
-    .small{font-size:0.9rem;color:var(--muted)}
-  </style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer Hub – Beach Cleanup</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:"Poppins",sans-serif;
+    }
+
+    body{
+        background:hsl(212, 100%, 89%);
+        overflow-x:hidden;
+    }
+    .hero{
+        height:55vh;
+        background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        color:white;
+        position:relative;
+    }
+    .hero::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:rgba(0,0,0,0.45);
+    }
+
+    .hero h1{
+        font-size:3rem;
+        z-index:10;
+    }
+
+    .section{
+        padding:40px;
+    }
+
+    .btn{
+        background:#007aff;
+        padding:10px 20px;
+        border:none;
+        color:white;
+        border-radius:8px;
+        cursor:pointer;
+        transition:.3s;
+    }
+
+    .btn:hover{
+        background:#0060d0;
+    }
+
+    .add-btn{
+        background:#34c759;
+        display:block;
+        margin:20px auto;
+    }
+    .events{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+        gap:20px;
+    }
+
+    .event-card{
+        background:white;
+        padding:20px;
+        border-radius:14px;
+        box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    }
+    .overlay{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.6);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        visibility:hidden;
+        opacity:0;
+        transition:.3s;
+    }
+
+    .overlay.active{
+        visibility:visible;
+        opacity:1;
+    }
+
+    .form-box{
+        width:350px;
+        background:white;
+        padding:25px;
+        border-radius:10px;
+        transform:translateY(-50px);
+        transition:.4s;
+    }
+
+    .overlay.active .form-box{
+        transform:translateY(0);
+    }
+
+    input, select{
+        width:100%;
+        padding:10px;
+        margin-bottom:15px;
+        border:1px solid #aaa;
+        border-radius:8px;
+    }
+</style>
 </head>
 <body>
-    <div class="bubbles"><span></span><span></span><span></span><span></span></div>
-  <div class="container">
-    <header>
-      <h1>Volunteer Hub</h1>
-      <nav class="small">Join local beach cleanups 🌴</nav>
-    </header><section class="hero card">
-  <strong>Upcoming beach cleanups — help keep our coastlines clean!</strong>
-  <p class="small">Choose an event below and register. No experience needed — just bring water and a smile.</p>
+
+<section class="hero">
+    <h1>Volunteer Hub – Beach Cleanups 🌊</h1>
 </section>
+<section class="section">
+  <h2 style="text-align:center;font-size:2rem;">Upcoming Events</h2>
 
-<main class="grid">
-  <section class="card events">
-    <h2 style="margin-top:0">Upcoming events</h2>
-    <ul id="eventsList">
-      <li><strong>Sunrise Cleanup</strong> — Nov 22, 2025 · 7:00 AM · Marina Bay</li>
-      <li><strong>Family Beach Day</strong> — Dec 6, 2025 · 9:00 AM · Seaview</li>
-      <li><strong>Night Patrol</strong> — Dec 20, 2025 · 5:30 PM · Coral Point</li>
-    </ul>
-    <p class="small" style="margin-top:12px">Want to add an event? Contact the organizer at <a href="mailto:volunteer@hub.org">volunteer@hub.org</a>.</p>
-  </section>
+  <button class="btn add-btn" onclick="openAddEvent()">+ Create New Event</button>
 
-  <aside class="card">
-    <h2 style="margin-top:0">Volunteer registration</h2>
-    <form id="volForm">
-      <label for="name">Full name</label>
-      <input id="name" name="name" required placeholder="Your name">
+  <div class="events" id="eventsContainer"></div>
+</section>
+<div class="overlay" id="popupForm">
+  <div class="form-box">
+    <h2>Volunteer Registration</h2><br>
+    <input type="text" id="regName" placeholder="Full Name">
+    <input type="email" id="regEmail" placeholder="Email">
+    <input type="text" id="regPhone" placeholder="Phone">
+    <select id="eventDropdown"></select>
 
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required placeholder="you@example.com">
+    <button class="btn" onclick="submitRegistration()">Submit</button><br><br>
+    <button class="btn" onclick="closeForm()" style="background:#ff3b30;">Close</button>
+  </div>
+</div>
+<div class="overlay" id="addEventPopup">
+  <div class="form-box">
+    <h2>Create Event</h2><br>
+    <input type="text" id="eventName" placeholder="Event Name">
+    <input type="date" id="eventDate">
+    <input type="time" id="eventTime">
 
-      <label for="phone">Phone (optional)</label>
-      <input id="phone" name="phone" placeholder="+91 99XXXXXXXX">
-      <label for="event">Select event</label>
-      <select id="event" name="event" required>
-        <option value="">-- choose an event --</option>
-        <option>Sunrise Cleanup — Nov 22, 2025</option>
-        <option>Family Beach Day — Dec 6, 2025</option>
-        <option>Night Patrol — Dec 20, 2025</option>
-      </select>
+    <button class="btn" onclick="addEvent()">Add</button><br><br>
+    <button class="btn" style="background:#ff3b30;" onclick="closeAddEvent()">Close</button>
+  </div>
+</div>
 
-      <label for="message">Any notes</label>
-      <textarea id="message" name="message" rows="3" placeholder="Allergies, group size, questions..."></textarea>
+<script>
+let eventList = [];
 
-      <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-        <button type="submit">Register</button>
-        <button type="button" id="clearBtn" style="background:#ddd;color:#111">Clear</button>
-      </div>
-    </form>
+/* Render Event Cards */
+function renderEvents(){
+    let container = document.getElementById("eventsContainer");
+    container.innerHTML = "";
 
-    <p id="response" class="small" style="margin-top:10px"></p>
-  </aside>
-</main>
-
-<footer>
-  <p class="small">Volunteer Hub • Community-led beach cleanups • <a href="#">Privacy</a></p>
-</footer>
-
-  </div>  <script>
-    // Simple front-end: show a confirmation and (in real life) send to a server
-    const form = document.getElementById('volForm');
-    const resp = document.getElementById('response');
-    const clear = document.getElementById('clearBtn');
-
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = new FormData(form);
-      const name = data.get('name');
-      const event = data.get('event');
-      if(!name || !event){
-        resp.textContent = 'Please fill in the required fields.';
-        return;
-      }
-      resp.textContent = `Thanks ${name}! You've registered for: ${event}. We'll contact you by email.`;
-      form.reset();
+    eventList.forEach((event, index)=>{
+        container.innerHTML += `
+            <div class="event-card">
+                <h3>${event.name}</h3>
+                <p>📅 ${event.date}</p>
+                <p>⏰ ${event.time}</p>
+                <button class="btn" onclick="openForm(${index})">Register</button>
+            </div>
+        `;
     });
+}
 
-    clear.addEventListener('click', ()=>{ form.reset(); resp.textContent=''; });
-  </script></body>
+/* Form Functions */
+let selectedEventIndex;
+
+function openForm(i){
+    selectedEventIndex = i;
+    updateDropdown();
+    document.getElementById("popupForm").classList.add("active");
+}
+function closeForm(){
+    document.getElementById("popupForm").classList.remove("active");
+}
+
+function submitRegistration(){
+    let name = regName.value;
+    let event = eventDropdown.value;
+
+    if(name === "" || event === ""){
+        alert("Please fill all fields!");
+        return;
+    }
+    alert("Thank you! You registered for " + event);
+    closeForm();
+}
+
+/* Add Event */
+function openAddEvent(){
+    document.getElementById("addEventPopup").classList.add("active");
+}
+function closeAddEvent(){
+    document.getElementById("addEventPopup").classList.remove("active");
+}
+
+function addEvent(){
+    let name = eventName.value;
+    let date = eventDate.value;
+    let time = eventTime.value;
+
+    if(name==="" || date==="" || time===""){
+        alert("Please fill all fields!");
+        return;
+    }
+
+    eventList.push({name,date,time});
+    renderEvents();
+    closeAddEvent();
+}
+
+/* Update registration dropdown */
+function updateDropdown(){
+    let dropdown = document.getElementById("eventDropdown");
+    dropdown.innerHTML = "";
+
+    eventList.forEach(e=>{
+        let option=document.createElement("option");
+        option.textContent=e.name;
+        dropdown.appendChild(option);
+    });
+}
+
+/* Default starter events */
+eventList = [
+    {name:"Juhu Beach Cleanup", date:"2025-11-25", time:"07:00"},
+    {name:"Charni Chowpatty Cleanup", date:"2025-11-28", time:"06:30"},
+    {name:"Versova Beach Cleanup", date:"2025-12-02", time:"07:30"}
+];
+
+renderEvents();
+</script>
+
+</body>
 </html>
