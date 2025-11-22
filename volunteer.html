@@ -135,8 +135,27 @@
     <input type="text" id="regPhone" placeholder="Phone">
     <select id="eventDropdown"></select>
 
-    <button class="btn" onclick="submitRegistration()">Submit</button><br><br>
+ <div class="button-row">
+    <button class="btn" onclick="submitRegistration()">Submit</button>
     <button class="btn" onclick="closeForm()" style="background:#ff3b30;">Close</button>
+</div>
+
+<style>
+.button-row {
+    display: flex;
+    gap: 10px; /* space between buttons */
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #007aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
+
   </div>
 </div>
 <div class="overlay" id="addEventPopup">
@@ -274,5 +293,6 @@ renderEvents();
 
 </body>
 </html>
+
 
 
