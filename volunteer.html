@@ -157,14 +157,16 @@ let eventList = [];
 function validate(name, email, phone){
     let namePattern = /^[A-Za-z ]+$/;
     let phonePattern = /^[0-9]{10}$/;
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+    // Allow multiple domains
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|sakec\.ac\.in)$/;
 
     if(!namePattern.test(name)){
         alert("Name should contain only alphabets!");
         return false;
     }
     if(!emailPattern.test(email)){
-        alert("Enter a valid Gmail address (example@gmail.com)");
+        alert("Enter a valid email address (gmail.com, yahoo.com, sakec.ac.in)");
         return false;
     }
     if(!phonePattern.test(phone)){
@@ -173,6 +175,7 @@ function validate(name, email, phone){
     }
     return true;
 }
+
 
 /* Render Event Cards */
 function renderEvents(){
@@ -271,3 +274,4 @@ renderEvents();
 
 </body>
 </html>
+
