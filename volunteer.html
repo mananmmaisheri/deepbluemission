@@ -120,7 +120,13 @@
 <section class="hero">
     <h1>Volunteer Hub – Beach Cleanups 🌊</h1>
 </section>
+<section class="section">
+  <h2 style="text-align:center;font-size:2rem;">Upcoming Events</h2>
 
+  <button class="btn add-btn" onclick="openAddEvent()">+ Create New Event</button>
+
+  <div class="events" id="eventsContainer"></div>
+</section>
 <div class="overlay" id="popupForm">
   <div class="form-box">
     <h2>Volunteer Registration</h2><br>
@@ -158,7 +164,7 @@ function validate(name, email, phone){
         return false;
     }
     if(!emailPattern.test(email)){
-        alert("Enter a valid Gmail address (example@gmail.com)");
+        alert("Enter a valid Gmail address (example@)");
         return false;
     }
     if(!phonePattern.test(phone)){
@@ -265,4 +271,3 @@ renderEvents();
 
 </body>
 </html>
-
