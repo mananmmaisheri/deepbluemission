@@ -120,13 +120,7 @@
 <section class="hero">
     <h1>Volunteer Hub – Beach Cleanups 🌊</h1>
 </section>
-<section class="section">
-  <h2 style="text-align:center;font-size:2rem;">Upcoming Events</h2>
 
-  <button class="btn add-btn" onclick="openAddEvent()">+ Create New Event</button>
-
-  <div class="events" id="eventsContainer"></div>
-</section>
 <div class="overlay" id="popupForm">
   <div class="form-box">
     <h2>Volunteer Registration</h2><br>
@@ -157,7 +151,7 @@ let eventList = [];
 function validate(name, email, phone){
     let namePattern = /^[A-Za-z ]+$/;
     let phonePattern = /^[0-9]{10}$/;
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@$/;
 
     if(!namePattern.test(name)){
         alert("Name should contain only alphabets!");
@@ -271,3 +265,4 @@ renderEvents();
 
 </body>
 </html>
+
